@@ -3,42 +3,123 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>ALMIT</title>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html,body{
-    width:100%;
-    height:100%;
-    background:#000;
-    overflow:hidden;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%}
 body{
+    background:#000;
     display:flex;
     justify-content:center;
     align-items:center;
+    overflow:hidden;
+    font-family:Arial,Helvetica,sans-serif;
 }
-
 img{
-    width:min(80vw,800px);
+    width:min(80vw,750px);
+    max-width:90%;
     height:auto;
-    display:block;
     user-select:none;
     -webkit-user-drag:none;
 }
+.floating-buttons{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    z-index:1000;
+}
+.fab{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    text-decoration:none;
+    color:#fff;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    box-shadow:0 8px 24px rgba(0,0,0,.35);
+    transition:width .35s ease,padding .35s ease;
+    animation:slideIn .8s ease forwards,bounce 6s infinite;
+}
+.fab span{
+    width:0;
+    opacity:0;
+    overflow:hidden;
+    white-space:nowrap;
+    transition:.3s;
+    font-size:15px;
+}
+.fab:hover{
+    width:190px;
+    border-radius:30px;
+    justify-content:space-between;
+    padding:0 20px;
+}
+.fab:hover span{
+    width:auto;
+    opacity:1;
+}
+.fab i{font-size:26px}
+.location i{color:#ff5252}
+.whatsapp i{color:#25D366}
+.call i{color:#3fa9f5}
+.mail i{color:#ffb74d}
+
+@keyframes slideIn{
+from{transform:translateX(100px);opacity:0}
+to{transform:translateX(0);opacity:1}
+}
+@keyframes bounce{
+0%,90%,100%{transform:translateY(0)}
+94%{transform:translateY(-8px)}
+97%{transform:translateY(0)}
+}
+@media (max-width:768px){
+ img{width:92vw}
+ .fab{width:56px;height:56px}
+ .fab:hover{width:56px;padding:0;border-radius:50%}
+ .fab:hover span{display:none}
+}
 </style>
 </head>
-
 <body>
 
 <img src="logo.png" alt="ALMIT Logo">
+
+<div class="floating-buttons">
+
+<a class="fab location" href="https://maps.app.goo.gl/fydyNU1JfukbqF8w6" target="_blank">
+<span>Location</span>
+<i class="fa-solid fa-location-dot"></i>
+</a>
+
+<a class="fab whatsapp" href="https://wa.me/919995869449" target="_blank">
+<span>WhatsApp</span>
+<i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a class="fab call" href="tel:+919995869449">
+<span>Call</span>
+<i class="fa-solid fa-phone"></i>
+</a>
+
+<a class="fab mail" href="mailto:info@almitsystems.com">
+<span>Email</span>
+<i class="fa-solid fa-envelope"></i>
+</a>
+
+</div>
 
 </body>
 </html>
