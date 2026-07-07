@@ -6,6 +6,10 @@
 
 <title>ALMIT</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 <style>
@@ -22,22 +26,30 @@ html,body{
 }
 
 body{
+
     background:#000;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     overflow:hidden;
-    font-family:Arial,Helvetica,sans-serif;
+
+    font-family:"Manrope",sans-serif;
+
 }
 
 /* Logo */
 
 img{
+
     width:min(80vw,750px);
-    max-width:110%;
+    max-width:90%;
     height:auto;
+
     user-select:none;
     -webkit-user-drag:none;
+
 }
 
 /* Bottom Buttons */
@@ -52,76 +64,114 @@ img{
     transform:translateX(-50%);
 
     display:flex;
-    flex-direction:row;
-    align-items:center;
-    justify-content:center;
-
     gap:12px;
 
     z-index:1000;
 
 }
 
-/* Apple / DJI Style Button */
+/* Button */
 
 .fab{
 
-    width:100px;
-    height:30px;
+    width:48px;
+    height:48px;
+
+    border-radius:24px;
 
     display:flex;
     align-items:center;
     justify-content:center;
 
-    gap:10px;
+    overflow:hidden;
 
     text-decoration:none;
+
     color:#fff;
 
-    border-radius:14px;
+    background:rgba(30,30,32,.82);
 
-    background:rgba(28,28,30,.82);
-
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
 
     border:1px solid rgba(255,255,255,.08);
 
     box-shadow:0 8px 24px rgba(0,0,0,.35);
 
-    transition:all .25s ease;
+    transition:
+        width .30s ease,
+        border-radius .30s ease,
+        padding .30s ease,
+        transform .25s ease,
+        background .25s ease;
 
     animation:
-        slideUp .8s ease forwards,
+        slideUp .8s ease,
         bounce 7s infinite;
 
-}
-
-.fab:hover{
-
-    transform:translateY(-4px);
-
-    background:rgba(45,45,48,.95);
-
-    box-shadow:0 12px 30px rgba(0,0,0,.45);
-
-}
-
-.fab i{
-
-    font-size:10px;
-
-}
-
-.fab span{
-
-    font-size:10px;
-    font-weight:500;
     white-space:nowrap;
 
 }
 
-/* Icon Colors */
+/* Expand */
+
+.fab:hover,
+.fab:focus,
+.fab:focus-visible{
+
+    width:145px;
+
+    border-radius:18px;
+
+    justify-content:flex-start;
+
+    padding:0 16px;
+
+}
+
+/* Icon */
+
+.fab i{
+
+    min-width:16px;
+
+    font-size:18px;
+
+}
+
+/* Text */
+
+.fab span{
+
+    max-width:0;
+
+    opacity:0;
+
+    overflow:hidden;
+
+    margin-left:0;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+.fab:hover span,
+.fab:focus span,
+.fab:focus-visible span{
+
+    max-width:90px;
+
+    opacity:1;
+
+    margin-left:10px;
+
+}
+
+/* Colors */
 
 .location i{
     color:#ff5252;
@@ -139,20 +189,33 @@ img{
     color:#ffb74d;
 }
 
-/* Animation */
+/* Hover */
+
+.fab:hover,
+.fab:focus{
+
+    background:rgba(48,48,50,.95);
+
+    transform:translateY(-3px);
+
+}
+
+/* Animations */
 
 @keyframes slideUp{
 
     from{
 
         opacity:0;
-        transform:translateY(40px);
+
+        transform:translateY(30px);
 
     }
 
     to{
 
         opacity:1;
+
         transform:translateY(0);
 
     }
@@ -169,7 +232,7 @@ img{
 
     94%{
 
-        transform:translateY(-6px);
+        transform:translateY(-5px);
 
     }
 
@@ -193,39 +256,24 @@ img{
 
     .floating-buttons{
 
-        width:100%;
-
-        left:0;
-        transform:none;
-
-        justify-content:center;
+        bottom:18px;
 
         gap:8px;
-
-        bottom:15px;
-
-        flex-wrap:wrap;
 
     }
 
     .fab{
 
-        width:120px;
-        height:46px;
-
-        border-radius:15px;
+        width:44px;
+        height:44px;
 
     }
 
-    .fab i{
+    .fab:hover,
+    .fab:focus,
+    .fab.active{
 
-        font-size:18px;
-
-    }
-
-    .fab span{
-
-        font-size:12px;
+        width:130px;
 
     }
 
@@ -276,6 +324,43 @@ img{
     </a>
 
 </div>
+
+<script>
+// Mobile: tap once to expand, tap again to open
+document.querySelectorAll(".fab").forEach(btn => {
+
+    btn.addEventListener("click", function(e){
+
+        if(window.innerWidth > 768) return;
+
+        if(!this.classList.contains("active")){
+
+            e.preventDefault();
+
+            document.querySelectorAll(".fab").forEach(b=>{
+                b.classList.remove("active");
+            });
+
+            this.classList.add("active");
+
+        }
+
+    });
+
+});
+
+document.addEventListener("click",function(e){
+
+    if(!e.target.closest(".fab")){
+
+        document.querySelectorAll(".fab").forEach(b=>{
+            b.classList.remove("active");
+        });
+
+    }
+
+});
+</script>
 
 </body>
 </html>
