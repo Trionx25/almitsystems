@@ -54,17 +54,33 @@ img{
 
 /* Bottom Buttons */
 
-.floating-buttons{
+.left-buttons{
 
     position:fixed;
 
-    left:50%;
-    bottom:25px;
+    left:20px;
 
-    transform:translateX(-50%);
+    bottom:20px;
 
     display:flex;
-    gap:12px;
+
+    gap:10px;
+
+    z-index:1000;
+
+}
+
+.right-buttons{
+
+    position:fixed;
+
+    right:20px;
+
+    bottom:20px;
+
+    display:flex;
+
+    gap:10px;
 
     z-index:1000;
 
@@ -254,13 +270,25 @@ img{
 
     }
 
-    .floating-buttons{
+   .left-buttons{
 
-        bottom:18px;
+    left:10px;
 
-        gap:8px;
+    bottom:15px;
 
-    }
+    gap:6px;
+
+}
+
+.right-buttons{
+
+    right:10px;
+
+    bottom:15px;
+
+    gap:6px;
+
+}
 
     .fab{
 
@@ -287,7 +315,9 @@ img{
 
 <img src="logo.png" alt="ALMIT Logo">
 
-<div class="floating-buttons">
+<div class="left-buttons">
+
+    <!-- Location -->
 
     <a class="fab location"
        href="https://maps.app.goo.gl/fydyNU1JfukbqF8w6"
@@ -298,6 +328,22 @@ img{
 
     </a>
 
+    <!-- Email -->
+
+    <a class="fab mail"
+       href="mailto:info@almitsystems.com">
+
+        <i class="fa-solid fa-envelope"></i>
+        <span>Email</span>
+
+    </a>
+
+</div>
+
+<div class="right-buttons">
+
+    <!-- WhatsApp -->
+
     <a class="fab whatsapp"
        href="https://wa.me/919995869449"
        target="_blank">
@@ -307,19 +353,13 @@ img{
 
     </a>
 
+    <!-- Call -->
+
     <a class="fab call"
        href="tel:+919995869449">
 
         <i class="fa-solid fa-phone"></i>
         <span>Call</span>
-
-    </a>
-
-    <a class="fab mail"
-       href="mailto:info@almitsystems.com">
-
-        <i class="fa-solid fa-envelope"></i>
-        <span>Email</span>
 
     </a>
 
