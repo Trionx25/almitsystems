@@ -52,6 +52,32 @@ img{
 
 }
 
+    /* Drone */
+
+.drone{
+
+    position:fixed;
+
+    top:40px;
+
+    right:40px;
+
+    width:280px;
+
+    height:auto;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+
+    pointer-events:none;
+
+    animation:
+        float 5s ease-in-out infinite,
+        fadeIn 1s ease;
+
+}
+
 /* Bottom Buttons */
 
 .left-buttons{
@@ -260,6 +286,56 @@ img{
 
 }
 
+    @keyframes float{
+
+    0%,100%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-10px);
+
+    }
+
+}
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+    @media(max-width:768px){
+
+    .drone{
+
+        width:150px;
+
+        top:20px;
+
+        right:15px;
+
+    }
+
+}
+
 /* Mobile */
 
 @media(max-width:768px){
@@ -314,6 +390,10 @@ img{
 <body>
 
 <img src="logo.png" alt="ALMIT Logo">
+
+<img src="drone.png"
+     alt="ALMIT Drone"
+     class="drone">
 
 <div class="left-buttons">
 
