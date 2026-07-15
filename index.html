@@ -135,15 +135,13 @@ img{
 
 }
     
-    /* Drone */
-
-.drone{
+    .drone{
 
     position:fixed;
 
-    top:40px;
+    top:50%;
 
-    right:40px;
+    right:-220px;
 
     width:195px;
 
@@ -155,9 +153,9 @@ img{
 
     pointer-events:none;
 
-    animation:
-        float 5s ease-in-out infinite,
-        fadeIn 3s ease;
+    z-index:100;
+
+    animation:droneFlight 4s ease-in-out infinite;
 
 }
 
@@ -369,17 +367,75 @@ img{
 
 }
 
-    @keyframes float{
+   @keyframes droneFlight{
 
-    0%,100%{
+    /* Start just outside the right edge */
 
-        transform:translateY(0px);
+    0%{
+
+        top:55%;
+
+        right:-220px;
+
+        opacity:0;
+
+        transform:rotate(-8deg) scale(.9);
 
     }
 
-    50%{
+    /* Enter and climb */
 
-        transform:translateY(-10px);
+    15%{
+
+        top:40%;
+
+        right:40px;
+
+        opacity:1;
+
+        transform:rotate(-5deg) scale(1);
+
+    }
+
+    /* Fly across to the left */
+
+    45%{
+
+        top:20%;
+
+        right:75vw;
+
+        opacity:1;
+
+        transform:rotate(-2deg);
+
+    }
+
+    /* Turn and return */
+
+    75%{
+
+        top:15%;
+
+        right:40px;
+
+        opacity:1;
+
+        transform:rotate(8deg);
+
+    }
+
+    /* Fly out of the top-right */
+
+    100%{
+
+        top:-250px;
+
+        right:-250px;
+
+        opacity:0;
+
+        transform:rotate(15deg) scale(.75);
 
     }
 
