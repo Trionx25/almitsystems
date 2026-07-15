@@ -141,9 +141,9 @@ img{
 
     top:60%;
 
-    right:-250px;
+    right:-160px;
 
-    width:150px;
+    width:140px;
 
     height:auto;
 
@@ -155,7 +155,9 @@ img{
 
     z-index:100;
 
-    animation:droneFlight 9s ease-in-out infinite;
+    transform-origin:center center;
+
+    animation:droneFlight 9s cubic-bezier(.42,0,.22,1) infinite;
 
 }
 
@@ -369,81 +371,63 @@ img{
 
    @keyframes droneFlight{
 
-    /* Start outside the right side */
+    /* Start outside right */
 
     0%{
 
-        top:60%;
-        right:-180px;
+        transform:translate(0,0) rotate(-12deg) scale(.88);
 
         opacity:0;
-
-        transform:rotate(-10deg) scale(.9);
 
     }
 
     /* Enter while climbing */
 
-    18%{
+    15%{
 
-        top:40%;
-        right:30px;
+        transform:translate(-170px,-120px) rotate(-8deg) scale(1);
 
         opacity:1;
-
-        transform:rotate(-6deg);
 
     }
 
     /* Reach top-right */
 
-    35%{
+    32%{
 
-        top:10%;
-        right:30px;
+        transform:translate(-170px,-300px) rotate(-4deg);
 
         opacity:1;
-
-        transform:rotate(-2deg);
 
     }
 
-    /* Move only slightly left */
+    /* Small patrol to the left */
 
-    58%{
+    55%{
 
-        top:10%;
-        right:22vw;
+        transform:translate(-420px,-300px) rotate(2deg);
 
         opacity:1;
-
-        transform:rotate(0deg);
 
     }
 
     /* Return to top-right */
 
-    82%{
+    78%{
 
-        top:10%;
-        right:30px;
+        transform:translate(-170px,-300px) rotate(8deg);
 
         opacity:1;
 
-        transform:rotate(6deg);
-
     }
 
-    /* Fly away */
+    /* Climb away */
 
     100%{
 
-        top:-180px;
-        right:-180px;
+        transform:translate(140px,-620px) rotate(15deg) scale(.65);
 
         opacity:0;
-
-        transform:rotate(15deg) scale(.7);
 
     }
 
@@ -530,6 +514,38 @@ img{
 
 }
 
+/* Footer */
+
+.footer{
+
+    position:fixed;
+
+    bottom:10px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:12px;
+
+    font-weight:500;
+
+    color:#666;
+
+    text-align:center;
+
+    line-height:1.5;
+
+    letter-spacing:.3px;
+
+    user-select:none;
+
+    z-index:1000;
+
+}
+
 </style>
 
 </head>
@@ -595,6 +611,12 @@ img{
     </a>
 
 </div>
+
+<footer class="footer">
+    &copy; 2026 ALMIT – Airland Marine Innovations &amp; Technologies Private Limited
+    <br>
+    Proudly Made in India 🇮🇳
+</footer>
 
 <script>
 // Mobile: tap once to expand, tap again to open
