@@ -66,7 +66,7 @@ img{
 
 }
 
-    /* Maintenance Text */
+   /* Maintenance Text */
 
 .maintenance{
 
@@ -82,7 +82,7 @@ img{
 
     font-weight:bold;
 
-    color:#000;
+    color:#ff0000;
 
     text-transform:uppercase;
 
@@ -91,6 +91,47 @@ img{
     z-index:2000;
 
     user-select:none;
+
+    animation:breathing 2.2s ease-in-out infinite;
+
+}
+
+/* Breathing Animation */
+
+@keyframes breathing{
+
+    0%{
+
+        opacity:.45;
+
+        color:#8b0000;
+
+        text-shadow:0 0 4px rgba(255,0,0,.25);
+
+    }
+
+    50%{
+
+        opacity:1;
+
+        color:#ff0000;
+
+        text-shadow:
+            0 0 8px rgba(255,0,0,.7),
+            0 0 16px rgba(255,0,0,.5),
+            0 0 24px rgba(255,0,0,.35);
+
+    }
+
+    100%{
+
+        opacity:.45;
+
+        color:#8b0000;
+
+        text-shadow:0 0 4px rgba(255,0,0,.25);
+
+    }
 
 }
     
