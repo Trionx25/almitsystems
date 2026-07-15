@@ -143,7 +143,7 @@ img{
 
     right:-250px;
 
-    width:195px;
+    width:150px;
 
     height:auto;
 
@@ -155,7 +155,7 @@ img{
 
     z-index:100;
 
-    animation:droneFlight 4s ease-in-out infinite;
+    animation:droneFlight 7s ease-in-out infinite;
 
 }
 
@@ -374,12 +374,11 @@ img{
     0%{
 
         top:60%;
-
-        right:-250px;
+        right:-180px;
 
         opacity:0;
 
-        transform:rotate(-12deg) scale(.90);
+        transform:rotate(-10deg) scale(.9);
 
     }
 
@@ -387,37 +386,34 @@ img{
 
     18%{
 
-        top:38%;
-
-        right:60px;
+        top:40%;
+        right:30px;
 
         opacity:1;
 
-        transform:rotate(-8deg) scale(1);
+        transform:rotate(-6deg);
 
     }
 
-    /* Climb straight to the top-right corner */
+    /* Reach top-right */
 
     35%{
 
         top:10%;
-
-        right:40px;
+        right:30px;
 
         opacity:1;
 
-        transform:rotate(-3deg);
+        transform:rotate(-2deg);
 
     }
 
-    /* Fly left only to about one-third of the screen */
+    /* Move only slightly left */
 
     58%{
 
         top:10%;
-
-        right:35vw;
+        right:22vw;
 
         opacity:1;
 
@@ -425,31 +421,29 @@ img{
 
     }
 
-    /* Return to the top-right */
+    /* Return to top-right */
 
     82%{
 
         top:10%;
-
-        right:40px;
+        right:30px;
 
         opacity:1;
 
-        transform:rotate(8deg);
+        transform:rotate(6deg);
 
     }
 
-    /* Climb away and disappear */
+    /* Fly away */
 
     100%{
 
-        top:-220px;
-
-        right:-220px;
+        top:-180px;
+        right:-180px;
 
         opacity:0;
 
-        transform:rotate(18deg) scale(.65);
+        transform:rotate(15deg) scale(.7);
 
     }
 
